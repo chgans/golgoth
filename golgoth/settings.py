@@ -17,7 +17,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 # See https://docs.djangoproject.com/en/1.7/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '97s3s#7ihxi)639q!1e_n42==@63f3vq7(nnwh#96b7*=@ahp%'
+SECRET_KEY = '&zb8v3lkuvwlk_kqg0ooz!dxj!7z3ss!c(gg_+yu+z#nom-gp#'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -81,3 +81,57 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.7/howto/static-files/
 
 STATIC_URL = '/static/'
+
+# https://github.com/imkevinxu/django-kevin
+
+#
+# https://django-secure.readthedocs.org/en/latest/index.html
+# 
+INSTALLED_APPS += ( 'djangosecure', )
+MIDDLEWARE_CLASSES += ( 'djangosecure.middleware.SecurityMiddleware', )
+SECURE_SSL_REDIRECT = True
+SECURE_HSTS_SECONDS = 10
+SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+SECURE_FRAME_DENY = True
+SECURE_CONTENT_TYPE_NOSNIFF = True
+SECURE_BROWSER_XSS_FILTER = True
+SESSION_COOKIE_SECURE = True
+SESSION_COOKIE_HTTPONLY = True
+
+#
+# https://github.com/teddziuba/django-sslserver
+#
+INSTALLED_APPS += ( 'sslserver', )
+
+#
+# http://django-debug-toolbar.readthedocs.org
+# 
+INSTALLED_APPS += ( 'debug_toolbar.apps.DebugToolbarConfig', )
+MIDDLEWARE_CLASSES += ( 'debug_toolbar.middleware.DebugToolbarMiddleware', )
+
+#
+# http://django-authtools.readthedocs.org
+#
+INSTALLED_APPS += ( 'authtools', )
+AUTH_USER_MODEL = 'authtools.User'
+
+#
+# https://github.com/django-behave/django-behave
+#
+INSTALLED_APPS += ( 'django_behave', )
+# TEST_RUNNER = 'django_behave.runner.DjangoBehaveTestSuiteRunner'
+
+#
+# https://github.com/django-nose/django-nose
+# http://nose.readthedocs.org
+# 
+#
+INSTALLED_APPS += ( 'django_nose', )
+TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'
+
+
+#
+# golgoth
+#
+INSTALLED_APPS += ( 'search', )
+
