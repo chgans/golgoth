@@ -17,6 +17,7 @@ before_script:
 
 script:
   - pwd
+  - ls -la
   - ./runtests.sh
 
 deploy:
