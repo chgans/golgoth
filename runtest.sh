@@ -1,5 +1,4 @@
 #!/bin/sh
 set -ex
 
-# Placeholder
-exit 0
+python manage.py tests

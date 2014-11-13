@@ -1,0 +1,2 @@
+
+* golgoth/settings.py: Move SECRET_KEY away and regenerate it
