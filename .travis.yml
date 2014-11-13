@@ -17,3 +17,13 @@ before_script:
 
 script:
   ./runtests.sh
+
+deploy:
+  provider: openshift
+  user: golgoth@openmail.cc
+  password:
+    secure: e19jBXuXcNZgtQ/ArP6NWFRtlzlG00mpHMOG1Uo4TI4O0WdtiMgE62UBmnpdpCyFAE+li6BdJQzk0+U63xXgjQ4mdgXiSyknoerSjwoBdBVFif0h3fSwA2yRBEZ4lFs5wibX5A3uRoi/x4GQ/xcghJh00sRIPPERNPidpUyOYs4=
+  app: web
+  domain: golgoth
+  on:
+    repo: golgoth42/golgoth
