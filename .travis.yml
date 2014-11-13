@@ -1,16 +1,19 @@
 language: python
+
 python:
-  - "3.3"
-  - "3.4"
+  '3.3'
+  '3.4'
+
 env:
-  - DJANGO=Django==1.7
-  - DJANGO=https://github.com/django/django/archive/master.zip
-# services:
-#   - rabbitmq
+  DJANGO=Django==1.7
+  DJANGO=https://github.com/django/django/archive/master.zip
+
 install:
-  - pip install -q $DJANGO
-  - pip install -r requirements.txt
+  pip install -q $DJANGO
+  pip install -r requirements.txt
+
 before_script:
-  - psql -c 'create database golgoth;' -U postgres
+  psql -c 'create database golgoth;' -U postgres
+
 script:
-  - ./runtests.sh
+  ./runtests.sh
