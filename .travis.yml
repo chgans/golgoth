@@ -16,8 +16,6 @@ before_script:
   - psql -c 'create database golgoth;' -U postgres
 
 script:
-  - pwd
-  - ls -la
   - ./runtests.sh
 
 deploy:
