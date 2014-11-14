@@ -4,7 +4,8 @@ behave==1.2.4
 bpython==0.13.1
 coverage==3.7.1
 django-authtools==1.0.0
--e git+https://github.com/django-behave/django-behave.git@4a0cc1a985d1a9e445da98f6c5ccbee23d69a91b#egg=django-behave
+-e git+https://github.com/django-behave/django-behave.git@4a0cc1a985d1a9e445da98f6c5ccbee23d69a91b#egg=django_behave-origin/HEAD
+django-bower==5.0.1
 django-debug-toolbar==1.2.2
 django-extensions==1.4.6
 django-model-utils==2.2

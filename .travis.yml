@@ -9,10 +9,16 @@ env:
   - DJANGO=Django==1.7.1
 
 install:
+  - sudo apt-get install npm
+  - sudo ln -s /usr/bin/nodejs /usr/bin/node
+  # TODO: pin down versions
+  - sudo npm install -g bower phantomjs
   - pip install "$DJANGO"
   - pip install -r requirements.txt
+  - python ./manage.py bower install
 
 before_script:
+  - python ./manage.py collectstatic
   - psql -c 'create database golgoth;' -U postgres
 
 script:
@@ -26,6 +32,6 @@ deploy:
   app: $OPENSHIFT_APP_NAME
   domain: $OPENSHIFT_APP_NAMESPACE
   on:
-    python: $PYTHON_PROD
-    condition: $DJANGO = $DJANGO_PROD
+    python: 3.3
+    condition: $DJANGO = Django==1.7.1
     repo: golgoth42/golgoth

@@ -12,7 +12,6 @@ https://docs.djangoproject.com/en/1.7/ref/settings/
 import os
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.7/howto/deployment/checklist/
 
@@ -77,9 +76,12 @@ USE_L10N = True
 USE_TZ = True
 
 
+
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.7/howto/static-files/
-
+STATICFILES_FINDERS = ()
+STATICFILES_DIRS = ()
+STATIC_ROOT = 'static'
 STATIC_URL = '/static/'
 
 # https://github.com/imkevinxu/django-kevin
@@ -106,8 +108,9 @@ INSTALLED_APPS += ( 'sslserver', )
 #
 # http://django-debug-toolbar.readthedocs.org
 # 
-INSTALLED_APPS += ( 'debug_toolbar.apps.DebugToolbarConfig', )
+INSTALLED_APPS += ( 'debug_toolbar', )
 MIDDLEWARE_CLASSES += ( 'debug_toolbar.middleware.DebugToolbarMiddleware', )
+INTERNAL_IPS = ('127.0.0.1')
 
 #
 # http://django-authtools.readthedocs.org
@@ -127,8 +130,18 @@ INSTALLED_APPS += ( 'django_behave', )
 # 
 #
 INSTALLED_APPS += ( 'django_nose', )
-TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'
+#TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'
 
+#
+# https://github.com/nvbn/django-bower
+#
+INSTALLED_APPS += ( 'djangobower', )
+STATICFILES_FINDERS += ( 'djangobower.finders.BowerFinder', )
+BOWER_COMPONENTS_ROOT = os.path.join(BASE_DIR, 'components')
+BOWER_INSTALLED_APPS = (
+    'jquery#1.9',
+    'bootstrap#3.3',
+)
 
 #
 # golgoth

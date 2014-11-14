@@ -1,5 +1,5 @@
 from behave import given, when, then, step
-from s34rch.management.commands.create_session import create_pre_authenticated_session
+from search.management.commands.create_session import create_pre_authenticated_session
 from django.conf import settings
 
 
@@ -8,7 +8,10 @@ def given_i_am_logged_in(context):
     session_key = create_pre_authenticated_session(email='a@b.c')
     ## to set a cookie we need to first visit the domain.
     ## 404 pages load the quickest!
-    context.browser.get(context.server_url + "/404_no_such_url/")
+    url = context.server_url + "/admin/login/?next=/admin/"
+    url = 'http://google.com'
+    context.browser.get(url)
+    print(url, context.browser.current_url)
     context.browser.add_cookie(dict(
         name=settings.SESSION_COOKIE_NAME,
         value=session_key,
