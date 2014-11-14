@@ -22,7 +22,7 @@ deploy:
   provider: openshift
   user: golgoth@openmail.cc
   password:
-    secure: e19jBXuXcNZgtQ/ArP6NWFRtlzlG00mpHMOG1Uo4TI4O0WdtiMgE62UBmnpdpCyFAE+li6BdJQzk0+U63xXgjQ4mdgXiSyknoerSjwoBdBVFif0h3fSwA2yRBEZ4lFs5wibX5A3uRoi/x4GQ/xcghJh00sRIPPERNPidpUyOYs4=
+    secure: S4g+GRdr3PnX4eoD1ZwSWKeB3lzhiH87berwf0cqgXVciVthDgqzU3H1x3zBTFQjXBTS7cXG4G53xqKDtGX6yjUwuq2BI8xr5d7tzHB9ErkE8rTnFAjK9lPQwFom3VSvfbq+SMhtqquZRv9wwup07J3uEQrJmtswc4tVDxBRUak=
   app: web
   domain: golgoth
   on:
