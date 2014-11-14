@@ -20,10 +20,10 @@ script:
 
 deploy:
   provider: openshift
-  user: golgoth@openmail.cc
+  user: $OPENSHIFT_USERNAME
   password:
-    secure: S4g+GRdr3PnX4eoD1ZwSWKeB3lzhiH87berwf0cqgXVciVthDgqzU3H1x3zBTFQjXBTS7cXG4G53xqKDtGX6yjUwuq2BI8xr5d7tzHB9ErkE8rTnFAjK9lPQwFom3VSvfbq+SMhtqquZRv9wwup07J3uEQrJmtswc4tVDxBRUak=
-  app: web
-  domain: golgoth
+    secure: $OPENSHIFT_PASSWORD
+  app: $OPENSHIFT_APP_NAME
+  domain: $OPENSHIFT_APP_NAMESPACE
   on:
     repo: golgoth42/golgoth
