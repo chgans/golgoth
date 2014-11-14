@@ -5,14 +5,11 @@ python:
   - 3.4
 
 env:
-  - PYTHON_PROD=3.3
-  - DJANGO_PROD=1.7.1
-  - DJANGO_MASTER=https://github.com/django/django/archive/master.zip
-  - DJANGO=$DJANGO_PROD
-  - DJANGO=$DJANGO_MASTER
+  - DJANGO=https://github.com/django/django/archive/master.zip
+  - DJANGO=Django==1.7.1
 
 install:
-  - pip install "Django==$DJANGO"
+  - pip install "$DJANGO"
   - pip install -r requirements.txt
 
 before_script:
