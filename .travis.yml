@@ -5,11 +5,14 @@ python:
   - 3.4
 
 env:
-  - DJANGO='Django==1.7.1'
-  - DJANGO=https://github.com/django/django/archive/master.zip
+  - PYTHON_PROD=3.3
+  - DJANGO_PROD=1.7.1
+  - DJANGO_MASTER=https://github.com/django/django/archive/master.zip
+  - DJANGO=$DJANGO_PROD
+  - DJANGO=$DJANGO_MASTER
 
 install:
-  - pip install "$DJANGO"
+  - pip install "Django==$DJANGO"
   - pip install -r requirements.txt
 
 before_script:
@@ -26,4 +29,6 @@ deploy:
   app: $OPENSHIFT_APP_NAME
   domain: $OPENSHIFT_APP_NAMESPACE
   on:
+    python: $PYTHON_PROD
+    condition: $DJANGO = $DJANGO_PROD
     repo: golgoth42/golgoth
